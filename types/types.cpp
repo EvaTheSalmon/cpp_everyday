@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-int main() {
+int types() {
     
     double d = 0;
     while (cin >> d) {
@@ -13,4 +13,5 @@ int main() {
             << " i2==" << i2
             << " char (" << c << ")\n";
     }
+    return 0;
 }
