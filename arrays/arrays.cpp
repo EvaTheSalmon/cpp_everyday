@@ -14,7 +14,7 @@ vector<int> digitize(unsigned long n)
 	return arr;
 }
 
-int main() {
+int master() {
 	digitize(12322);
 	system("pause");
 	return 0;

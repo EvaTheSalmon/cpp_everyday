@@ -1,0 +1,1 @@
+Example projects and study problems I have tasked with
