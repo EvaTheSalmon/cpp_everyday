@@ -14,6 +14,16 @@ vector<int> digitize(unsigned long n)
 	return arr;
 }
 
+int square_sum(const std::vector<int>& numbers)
+{
+	int sum = 0;
+	//for by collection
+	for (auto x : numbers) {
+		sum += x * x;
+	}
+	return sum;
+}
+
 int master() {
 	digitize(12322);
 	system("pause");
