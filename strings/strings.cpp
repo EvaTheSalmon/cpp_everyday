@@ -15,7 +15,7 @@ bool isPalindrom(const string& str)
     return true;
 }
 
-int main() {
+int master() {
     if (isPalindrom("abba")) { cout << "1"; };
     system("pause");
     return 0;
