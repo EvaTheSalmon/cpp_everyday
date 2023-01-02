@@ -24,6 +24,15 @@ int square_sum(const std::vector<int>& numbers)
 	return sum;
 }
 
+vector<string> split_by_two(const string &s)
+{
+    string str = s;
+    vector<string> res;
+    if (str.size()%2!=0) str += "_";
+    for (int i = 0; i < str.size(); i += 2) res.push_back(str.substr(i, 2));
+    return res;
+}
+
 int master() {
 	digitize(12322);
 	system("pause");
