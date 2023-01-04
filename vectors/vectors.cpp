@@ -33,6 +33,38 @@ vector<string> split_by_two(const string &s)
     return res;
 }
 
+
+using namespace std;
+
+vector<string> split_string(const string str, char delimiter){
+    vector<string> vector_of_words;
+    string buffer = "";
+    for (int i=0; i<=(int)str.length();++i){
+        if (str[i]==delimiter || i==(int)str.length()){
+            vector_of_words.push_back(buffer);
+            buffer="";
+        } else {
+            buffer+=str[i];
+        }
+    }
+    return vector_of_words;
+}
+
+string spinWords(const string str){
+    vector<string> split = split_string(str, ' ');
+    string string_of_words;
+    for (string i: split){
+        if (i.length()>4) {
+            reverse(i.begin(), i.end()); 
+            string_of_words+=i+" ";
+        } else {
+            string_of_words+=i+" ";
+        }
+    }
+    return string_of_words.substr(0, string_of_words.size()-1);
+}
+
+
 int master() {
 	digitize(12322);
 	system("pause");
