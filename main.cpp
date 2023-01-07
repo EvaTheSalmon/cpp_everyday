@@ -146,6 +146,24 @@ string spinWords(const string str) {
 	return string_of_words.substr(0, string_of_words.size() - 1);
 }
 
+//You are given an array(which will have a length of at least 3, but could be very large) containing integers.The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N.Write a method that takes the array as an argumentand returns this "outlier" N.
+int FindOutlier(vector<int> arr)
+{
+	int even_quantity = 0, odd_quantity = 0,
+		even_number = 0, odd_number = 0;
+	for (int element : arr) {
+		if (element % 2 == 0) {
+			even_quantity++;
+			even_number = element;
+		}
+		else {
+			odd_quantity++;
+			odd_number = element;
+		}
+	}
+	return (even_quantity > odd_quantity) ? odd_number : even_number;
+}
+
 // ------------------------------- types -------------------------------
 
 int types() {
