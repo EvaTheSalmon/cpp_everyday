@@ -84,6 +84,35 @@ int points(const vector<string>& games) {
 	return sum;
 }
 
+
+//Write a function that takes a string of braces, and determines if the order of the braces is valid. It should return true if the string is valid, and false if it's invalid.
+#include <algorithm>
+
+bool valid_braces(std::string braces) {
+  while (braces.length()>1){
+    int old_len = braces.length();
+    
+    size_t pos1 = braces.find("()");
+    if (pos1 != std::string::npos){
+      braces.erase(pos1, 2);
+    }
+    
+    size_t pos2 = braces.find("[]");
+    if (pos2 != std::string::npos){
+      braces.erase(pos2, 2);
+    }
+    
+    size_t pos3 = braces.find("{}");
+    if (pos3 != std::string::npos){
+      braces.erase(pos3, 2);
+    }
+    
+    int new_len = braces.length();
+    if (new_len == old_len) { return false; }
+  }
+  return (braces.length()!=1);
+}
+
 // ------------------------------- vectors -------------------------------
 
 vector<int> digitize(unsigned long n)
