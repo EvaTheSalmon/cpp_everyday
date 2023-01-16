@@ -115,6 +115,36 @@ bool valid_braces(std::string braces) {
 }
 
 //a program that will calculate the number of trailing zeros in a factorial of a given number.
+//small factorial
+#include <cstring>
+long factorial(long n){
+  while (n > 1) {
+    std::cout<<n<<std::endl;
+    return n*factorial(n-1);
+  }
+  return 1;
+}
+
+long zeros(long n) {
+  long N = 0;
+  std::string res = std::to_string(factorial(n));
+  
+  while (res.back()=="0"[0]){
+    N++;
+    res.pop_back();
+  }
+  return N;
+}
+
+//actual: Trailing 0s in n! = Count of 5s in prime factors of n!= floor(n/5) + floor(n/25) + floor(n/125) + ....
+long zeros(long n) {
+  long sum = 0;
+  std::cout<<n<<std::endl;
+  for (int i = 5; n / i>=1; i *=5){
+    sum+=n/i;
+  }
+  return sum;
+}
 
 // ------------------------------- vectors -------------------------------
 
