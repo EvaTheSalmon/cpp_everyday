@@ -114,6 +114,8 @@ bool valid_braces(std::string braces) {
   return (braces.length()!=1);
 }
 
+//a program that will calculate the number of trailing zeros in a factorial of a given number.
+
 // ------------------------------- vectors -------------------------------
 
 vector<int> digitize(unsigned long n)
