@@ -226,6 +226,78 @@ int FindOutlier(vector<int> arr)
 	return (even_quantity > odd_quantity) ? odd_number : even_number;
 }
 
+//Greed is a dice game played with five six-sided dice. Your mission, should you choose to accept it, is to score a throw according to these rules. You will always be given an array with five six-sided dice values.   Three 1's => 1000 points  Three 6's =>  600 points  Three 5's =>  500 points  Three 4's =>  400 points  Three 3's =>  300 points  Three 2's =>  200 points  One   1   =>  100 points  One   5   =>   50 point  A single die can only be counted once in each roll. For example, a given "5" can only count as part of a triplet (contributing to the 500 points) or as a single 50 points, but not both in the same roll.
+
+#include <vector>
+
+int count(const std::vector<int> &vec, int numb) {
+    int count = 0;
+    for (auto i : vec) {
+        if (i == numb) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int score(const std::vector<int> &dice) {
+    int prize = 0;
+
+    int c_one = count(dice, 1);
+    int c_two = count(dice, 2);
+    int c_three = count(dice, 3);
+    int c_four = count(dice, 4);
+    int c_five = count(dice, 5);
+    int c_six = count(dice, 6);
+
+    if (c_one >= 3) {
+        prize += 1000;
+        prize += (c_one - 3) * 100;
+    }
+    if (c_one < 3 && c_one > 0) {
+        prize += c_one * 100;
+    }
+
+    if (c_six >= 3) {
+        prize += 600;
+    }
+
+    if (c_five >= 3) {
+        prize += 500;
+        prize += (c_five - 3) * 50;
+    }
+
+    if (c_five < 3 && c_five > 0) {
+        prize += c_five * 50;
+    }
+
+    if (c_four >= 3) {
+        prize += 400;
+    }
+
+    if (c_three >= 3) {
+        prize += 300;
+    }
+
+    if (c_two >= 3) {
+        prize += 200;
+    }
+
+    return prize;
+}
+
+// better solution: 
+
+int score(const std::vector<int>& dice) {
+  unsigned cs[7] = {};
+  for (auto d : dice)
+    cs[d]++;
+  return
+    cs[1] / 3 * 1000 + cs[6] / 3 * 600 + cs[5] / 3 * 500 +
+    cs[4] / 3 * 400 + cs[3] / 3 * 300 + cs[2] / 3 * 200 +
+    cs[1] % 3 * 100 + cs[5] % 3 * 50;
+}
+
 // ------------------------------- types -------------------------------
 
 int types() {
